@@ -10,6 +10,11 @@
   text-shadow: none; /* Prevent inheritance from `body` */
 }
 
+#header {
+/*   background-image: linear-gradient(to right, #159aa8, #1abfd1);
+ */  background-color: rgb(21, 154, 168);
+}
+
 /*
  * Base structure
  */
@@ -28,7 +33,7 @@ body {
  */
 
 .nav-masthead .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(254, 254, 254, 0.5);
   border-bottom: 0.25rem solid transparent;
 }
 
@@ -44,6 +49,12 @@ body {
 .nav-masthead .active {
   color: #fff;
   border-bottom-color: #fff;
+}
+
+#main-container {
+  background-color: rgb(21, 154, 168);
+  padding: 10px 0px;
+  border-radius: 15px;
 }
 
 .bd-placeholder-img {
@@ -123,6 +134,89 @@ body {
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
 }
+
+
+/* submit section */
+
+/* .submit-container {
+  background-color: #159aa8;
+  border-radius: 15px;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+
+.submit-container{
+  width: 60%;
+  padding: 20px;
+  text-align: center;
+  margin: 20px auto 10px auto;
+}
+
+/* .headline {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.subheadline {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+} */
+input[type="email"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  color: #0d5d65;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="email"]:hover {
+  border-color: #0d5d65;
+}
+
+input[type="email"]:focus {
+  outline: none;
+  border-color: #0d5d65;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+input::placeholder {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+}
+.button {
+  width: 100%;
+  background-color: #1551A8;
+  background-color: #159aa8;
+  background-color: #1abfd1;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.button {
+  width: 100%;
+  background-image: linear-gradient(to right, #159aa8, #1abfd1);
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
 
 
 

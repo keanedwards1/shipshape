@@ -7,25 +7,25 @@ $(document).ready(function() {
 
         // Calculate price based on square footage and stories
         if (squareFootage === '1000' && stories === '1') {
-            price = 'Price for 1,000+ sq ft, 1 story';
+            price = '$115';
         } else if (squareFootage === '1000' && stories === '2') {
-            price = 'Price for 1,000+ sq ft, 2 stories';
+            price = '$165';
         } else if (squareFootage === '1000' && stories === '3') {
-            price = 'Price for 1,000+ sq ft, 3 stories';
+            price = '$215';
         } else if (squareFootage === '2000' && stories === '1') {
-            price = 'Price for 2,000+ sq ft, 1 story';
+            price = '$215';
         } else if (squareFootage === '2000' && stories === '2') {
-            price = 'Price for 2,000+ sq ft, 2 stories';
+            price = '$265';
         } else if (squareFootage === '2000' && stories === '3') {
-            price = 'Price for 2,000+ sq ft, 3 stories';
+            price = '$315';
         } else if (squareFootage === '3000' && stories === '1') {
-            price = 'Price for 3,000+ sq ft, 1 story';
+            price = '$315';
         } else if (squareFootage === '3000' && stories === '2') {
-            price = 'Price for 3,000+ sq ft, 2 stories';
+            price = '$365';
         } else if (squareFootage === '3000' && stories === '3') {
-            price = 'Price for 3,000+ sq ft, 3 stories';
+            price = '$415';
         } else {
-            price = 'Please select an option.';
+            price = '';
         }
 
         // Update the estimated price text
@@ -40,4 +40,135 @@ $(document).ready(function() {
     // Initialize with default values
     updatePrice();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* tooltip */
+document.addEventListener('DOMContentLoaded', function () {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Nav-link:
+/* document.addEventListener('DOMContentLoaded', function() {
+    // Get the current page URL
+    var currentPageUrl = window.location.href;
+
+    // Select the nav-link elements by their IDs
+    var indexLink = document.getElementById('index');
+    var infoLink = document.getElementById('info');
+    var contactLink = document.getElementById('contact');
+
+    // Find and remove the active class from the currently active link
+    var currentActiveLink = document.querySelector('.nav-link.active');
+    if (currentActiveLink) {
+        currentActiveLink.classList.remove('active');
+    }
+
+    // Apply active class based on the current page
+    if (currentPageUrl.includes('index.html')) {
+        indexLink.classList.add('active');
+    } else if (currentPageUrl.includes('info.html')) {
+        infoLink.classList.add('active');
+    } else if (currentPageUrl.includes('contact.html')) {
+        contactLink.classList.add('active');
+    } 
+});*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* email */
+
+document.querySelector('.button').addEventListener('click', () => {
+    // Get the email from the input field
+    const email = document.getElementById('emailInput').value;
+
+    // Check if the email is not empty
+    if (email) {
+        fetch('http://localhost:3000', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: email })
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log('Success:', data);
+            alert('Email sent successfully!');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('Failed to send email.');
+        });
+    } else {
+        alert('Please enter an email address.');
+    }
+});
+
+
+
+
+
+
+
+ 
 
