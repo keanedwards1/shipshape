@@ -155,7 +155,7 @@ emailInput.addEventListener('input', () => {
 document.querySelector('.button').addEventListener('click', () => {
     const email = emailInput.value;
     if (email) {
-        fetch('https://your-production-domain.com/send-email', { // Replace with your production domain
+        fetch('https://shipshapegutters.com/send-email', { // Replace with your production domain
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
