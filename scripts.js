@@ -153,35 +153,37 @@ emailInput.addEventListener('input', () => {
 });
 
 document.querySelector('.button').addEventListener('click', () => {
-    // Get the email from the input field
-    const email = document.getElementById('emailInput').value;
-
-    // Check if the email is not empty
+    const email = emailInput.value;
     if (email) {
-        fetch('http://localhost:3000/send-email', {
+        fetch('https://your-production-domain.com/send-email', { // Replace with your production domain
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ email: email })
         })
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
         .then(data => {
-            console.log('Success:', data);
             alert('Email sent successfully!');
         })
         .catch((error) => {
-            console.error('Error:', error);
-            alert('Failed to send email.');
+            console.error('There has been a problem with your fetch operation:', error);
+            alert('Failed to send email. Please try again later.');
         });
     } else {
-        alert('Please enter an email address.');
+        alert('Please enter a valid email address.');
     }
 });
 
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
+
 
 
 
