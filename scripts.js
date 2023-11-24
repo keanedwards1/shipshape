@@ -155,13 +155,13 @@ emailInput.addEventListener('input', () => {
 document.querySelector('.button').addEventListener('click', () => {
     const email = emailInput.value;
     if (email) {
-        fetch('https://shipshapegutters.com/send-email', { // Replace with your production domain
+        fetch('https://www.shipshapegutters.com/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ email: email })
-        })
+        })     
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
