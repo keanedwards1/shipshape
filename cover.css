@@ -11,8 +11,8 @@
 }
 
 #header {
-/*   background-image: linear-gradient(to right, #159aa8, #1abfd1);
- */  background-color: rgb(21, 154, 168);
+/*   background-color: rgb(21, 154, 168);
+ */  background-image: linear-gradient(to right, #159aa8, #1abfd1);
 }
 
 /*

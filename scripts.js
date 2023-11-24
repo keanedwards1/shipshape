@@ -137,13 +137,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* email */
 
+const emailInput = document.getElementById('emailInput');
+const submitButton = document.querySelector('.button');
+const emailHelp = document.getElementById('emailHelp');
+
+emailInput.addEventListener('input', () => {
+    const email = emailInput.value;
+    if (isValidEmail(email)) {
+        submitButton.disabled = false;
+        emailHelp.style.display = 'none';
+    } else {
+        submitButton.disabled = true;
+        emailHelp.style.display = email ? 'block' : 'none';
+    }
+});
+
 document.querySelector('.button').addEventListener('click', () => {
     // Get the email from the input field
     const email = document.getElementById('emailInput').value;
 
     // Check if the email is not empty
     if (email) {
-        fetch('http://localhost:3000', {
+        fetch('http://localhost:3000/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -163,6 +178,28 @@ document.querySelector('.button').addEventListener('click', () => {
         alert('Please enter an email address.');
     }
 });
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
