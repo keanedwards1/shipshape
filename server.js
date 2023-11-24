@@ -7,7 +7,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // CORS Middleware
-app.use(cors({ origin: 'shipshapegutters.com' })); // Replace with your actual domain
+app.use(cors({ 
+    origin: ['http://shipshapegutters.com', 'https://shipshapegutters.com', 
+             'http://www.shipshapegutters.com', 'https://www.shipshapegutters.com'] 
+}));
 
 // Built-in Express body parser
 app.use(express.json());
