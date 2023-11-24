@@ -1,4 +1,68 @@
+require('dotenv').config(); // Add this at the top for environment variables
 const express = require('express');
+const nodemailer = require('nodemailer');
+const cors = require('cors');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+// CORS Middleware
+app.use(cors({ origin: 'shipshapegutters.com' })); // Replace with your actual domain
+
+// Built-in Express body parser
+app.use(express.json());
+
+// Nodemailer Transport Configuration
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER, // Use environment variables
+        pass: process.env.EMAIL_PASS
+    }
+});
+
+app.post('/send-email', async (req, res) => {
+    const { email } = req.body;
+
+    if (!email) {
+        res.status(400).send('No email address provided');
+        return;
+    }
+
+    const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject: 'Hello',
+        text: 'Let\'s get those gutters cleaned'
+    };
+
+    try {
+        const info = await transporter.sendMail(mailOptions);
+        console.log('Email sent: ' + info.response);
+        res.status(200).send('Email sent successfully');
+    } catch (error) {
+        console.error('Error occurred: ' + error.message);
+        res.status(500).send('Error sending email: ' + error.message);
+    }
+});
+
+app.get('/', (req, res) => {
+    res.send('Hello, this is the root of the server!');
+});
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
+
+
+
+
+
+
+
+/* local version */
+
+/* const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
@@ -52,5 +116,24 @@ app.listen(port, () => {
 
 app.get('/', (req, res) => {
     res.send('Hello, this is the root of the server!');
-});
+}); */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
